@@ -11,8 +11,18 @@ public class MyArrays {
     return str;
   }
 
+  public static int[] returnCopy(int[] ary) {
+    int[] newArr = new int[ary.length];
+    for (int i = 0; i < ary.length; i++) {
+      newArr[i] = ary[i];
+    }
+    return newArr;
+  }
+
   public static void main(String[] args) {
     int[] arr = new int[] {0, 1, 2, 3, 4};
+    int[] empty = new int[0];
     System.out.println(arrayToString(arr));
+    System.out.println(arr == returnCopy(arr));
   }
 }
