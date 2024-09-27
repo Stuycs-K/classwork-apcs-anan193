@@ -19,6 +19,10 @@ public class MyArrays {
     return newArr;
   }
 
+  public static int[] concatArray(int[] ary1, int[] ary2) {
+    int[] newArr = new int[ary1.length + ary2.length];
+  }
+
   public static void main(String[] args) {
     int[] arr = new int[] {0, 1, 2, 3, 4};
     int[] empty = new int[0];
