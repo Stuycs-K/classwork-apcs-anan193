@@ -21,12 +21,22 @@ public class MyArrays {
 
   public static int[] concatArray(int[] ary1, int[] ary2) {
     int[] newArr = new int[ary1.length + ary2.length];
+    for (int i = 0; i < ary1.length; i++) {
+      newArr[i] = ary1[i];
+    }
+    for (int i = 0; i < ary2.length; i++) {
+      newArr[i + ary1.length] = ary2[i];
+    }
+    return newArr;
   }
 
   public static void main(String[] args) {
-    int[] arr = new int[] {0, 1, 2, 3, 4};
+    int[] arr1 = new int[] {0, 1, 2, 3, 4};
+    int[] arr2 = new int[] {20, 30, 40, 50};
     int[] empty = new int[0];
-    System.out.println(arrayToString(arr));
-    System.out.println(arr == returnCopy(arr));
+    System.out.println(arrayToString(arr1));
+    System.out.println(arr1 == returnCopy(arr1));
+    System.out.println(arrayToString(concatArray(arr1, arr2)));
+    
   }
 }
