@@ -9,9 +9,9 @@ public class ArrayMethods {
   */
   public static String arrToString(int[]ary){
     String str = "[";
-    for (int i = 0; i < nums.length; i++) {
-      str += nums[i];
-      if (i < nums.length - 1) {
+    for (int i = 0; i < ary.length; i++) {
+      str += ary[i];
+      if (i < ary.length - 1) {
         str += ", ";
       }
     }
@@ -28,14 +28,21 @@ public class ArrayMethods {
     * previous code, but you should NOT duplicate that code. (Don't copy/paste or retype it)
     */
   public static String arrToString(int[][]ary){
-    //this should use arrToString(int[])
-    return "";
+    String str = "[";
+    for (int i = 0; i < ary.length; i++){
+      str += arrToString(ary[i]);
+      if (i < ary.length - 1){
+        str += ", ";
+      }
+    }
+    str += "]";
+    return str;
   }
 
   /*Return the sum of all of the values in the 2D array */
-  public static int arr2DSum(int[][]nums){
+  //public static int arr2DSum(int[][]nums){
     //use a nested loop to solve this
-  }
+  //}
 
   /**Rotate an array by returning a new array with the rows and columns swapped.
     * You may assume the array is rectangular and neither rows nor cols is 0.
@@ -46,9 +53,13 @@ public class ArrayMethods {
   }
 
   public static void main(String[] args) {
-    int[][] test1 = new {{1}, {2}, {3}, {4, 5}};
-    int[][] test2 = new {{}, {}, {}};
-    int[][] test3 = new {};
-    System.out.println()
+    int[][] test1 = new int[][] {{1}, {2}, {3}, {4, 5}};
+    int[][] test2 = new int[][] {{}, {}, {}};
+    int[][] test3 = new int[][] {};
+    int[][] test4 = new int[][] {{},{145,213,2},{4},{12,3021,12}};
+    System.out.println(arrToString(test1));
+    System.out.println(arrToString(test2));
+    System.out.println(arrToString(test3));
+    System.out.println(arrToString(test4));
   }
 }
