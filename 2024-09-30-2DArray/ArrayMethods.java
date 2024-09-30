@@ -56,20 +56,36 @@ public class ArrayMethods {
     * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
     */
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int[][] swap = new int[nums[0].length][nums.length];
+    for (int i = 0; i < nums[0].length; i++) {
+      for (int k = 0; k < nums.length; k++) {
+        swap[i][k] = nums[k][i];
+      }
+    }
+    return swap;
   }
 
   public static void main(String[] args) {
-    int[][] test1 = new int[][] {{1}, {2}, {3}, {4, 5}};
+    int[][] test1 = new int[][] {{1}, {2}, {3}, {4}, {5}};
     int[][] test2 = new int[][] {{}, {}, {}};
     int[][] test3 = new int[][] {};
     int[][] test4 = new int[][] {{},{145,213,2},{4},{12,3021,12}};
+    int[][] test5 = new int[][] {{1,2,3}, {2,3}, {4,5,6,7,8}};
+    int[][] test6 = new int[][] {{1,2}, {3,4}, {5,6}, {7,8}};
+    int[][] test7 = new int[][] {{3,5,1}, {3,1,2}, {50,2,1}};
+    System.out.println("printing arrToString");
     System.out.println(arrToString(test1));
     System.out.println(arrToString(test2));
     System.out.println(arrToString(test3));
     System.out.println(arrToString(test4));
+    System.out.println("printing arr2DSum");
     System.out.println(arr2DSum(test1));
     System.out.println(arr2DSum(test2));
     System.out.println(arr2DSum(test4));
+    System.out.println(arr2DSum(test5));
+    System.out.println("printing swapRC");
+    System.out.println(arrToString(swapRC(test1)));
+    System.out.println(arrToString(swapRC(test6)));
+    System.out.println(arrToString(swapRC(test7)));
   }
 }
