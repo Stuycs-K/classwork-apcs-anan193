@@ -40,9 +40,16 @@ public class ArrayMethods {
   }
 
   /*Return the sum of all of the values in the 2D array */
-  //public static int arr2DSum(int[][]nums){
+  public static int arr2DSum(int[][]nums){
     //use a nested loop to solve this
-  //}
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int k = 0; k < nums[i].length; k++) {
+        sum += nums[i][k];
+      }
+    }
+    return sum;
+  }
 
   /**Rotate an array by returning a new array with the rows and columns swapped.
     * You may assume the array is rectangular and neither rows nor cols is 0.
@@ -61,5 +68,8 @@ public class ArrayMethods {
     System.out.println(arrToString(test2));
     System.out.println(arrToString(test3));
     System.out.println(arrToString(test4));
+    System.out.println(arr2DSum(test1));
+    System.out.println(arr2DSum(test2));
+    System.out.println(arr2DSum(test4));
   }
 }
