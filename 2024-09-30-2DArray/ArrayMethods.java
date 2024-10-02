@@ -88,8 +88,20 @@ public class ArrayMethods {
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
+  public static int[] copy(int[] nums) {
+    int[] copyNums = new int[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      copyNums[i] = nums[i];
+    }
+    return copyNums;
+  }
+  
   public static int[][] copy(int[][] nums){
-    return null;//placeholder so it compiles
+    int[][] copyNums = new int[nums.length][];
+    for (int i = 0; i < nums.length; i++) {
+      copyNums[i] = copy(nums[i]);
+    }
+    return copyNums;
   }
 
   public static void main(String[] args) {
@@ -119,5 +131,11 @@ public class ArrayMethods {
     System.out.println(arrToString(test8));
     replaceNegative(test8);
     System.out.println(arrToString(test8));
+    System.out.println("printing copy");
+    System.out.println(arrToString(test7));
+    int[][] copy7 = copy(test7);
+    test7[0][0] = 1000;
+    System.out.println(arrToString(test7));
+    System.out.println(arrToString(copy7));
   }
 }
