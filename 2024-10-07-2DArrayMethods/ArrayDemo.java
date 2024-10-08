@@ -4,8 +4,12 @@ public class ArrayDemo{
   public static void main(String[]args){
     int[][] test1 = new int[][] {{3,6,2},{56,1,0},{},{2,5,1}};
     int[][] test2 = new int[][] {{},{},{}};
+    int[][] test3 = new int[][] {{3,0,1},{0,2,1},{0,0,2,0}};
     System.out.println("My arrToString: " + arrToString(test1));
     System.out.println("Arrays.toString: " + Arrays.deepToString(test1));
+    System.out.println(countZeros2D(test1));
+    System.out.println(countZeros2D(test2));
+    System.out.println(countZeros2D(test3));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -39,7 +43,15 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int count = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int k = 0; k < nums[i].length; k++) {
+        if (nums[i][k] == 0) {
+          count++;
+        }
+      }
+    }
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
