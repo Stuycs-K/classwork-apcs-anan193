@@ -17,12 +17,17 @@ public class TriangleTester {
       while(input.hasNextLine()) {
         String line = input.nextLine();
         Scanner lineScan = new Scanner(line);
-        int[] sides = new int[3];
-        sides[0] = lineScan.nextInt();
-        sides[1] = lineScan.nextInt();
-        sides[2] = lineScan.nextInt();
-        int sum = sides[0] + sides[1] + sides[2];
-        if (Math.max(Math.max(sides[0],sides[1]),sides[2]) < sum/2) count++;
+        int longest = -1;
+        int sum = 0;
+
+        for (int i = 0; i < 3; i++) {
+          int x = lineScan.nextInt();
+          longest = Math.max(longest,x); //finding max length
+          sum += x; //adding to perimeter
+        }
+
+        if (2*longest < sum) count++; //triangle inequality
+        lineScan.close();
       }
 
       input.close();
@@ -33,8 +38,47 @@ public class TriangleTester {
     }
   }
 
+  public static int countTrianglesB(String filename) {
+    try {
+      File file = new File(filename);
+      Scanner input = new Scanner(file);
+
+      int count = 0;
+      int[][] ary = new int[3][3];
+      while(input.hasNextLine()) { //grabs a 3x3 block
+        for (int i = 0; i < 3; i++) { 
+          String line = input.nextLine();
+          Scanner lineScan = new Scanner(line);
+
+          for (int k = 0; k < 3; k++) {
+            ary[i][k] = lineScan.nextInt();
+          }
+          lineScan.close();
+        }
+
+        for(int i = 0; i < 3; i++) {
+          if (
+            ary[0][i] < ary[1][i] + ary[2][i]
+            &&
+            ary[1][i] < ary[0][i] + ary[2][i]
+            &&
+            ary[2][i] < ary[1][i] + ary[0][i]
+          ) count++;
+        }
+
+      }
+
+      input.close();
+      return count;
+    }
+    catch (FileNotFoundException ex) {
+      System.out.println("File not found");
+      return -1;
+    }
+  }
   public static void main(String[] args) {
     System.out.println(countTrianglesA("inputTri.txt"));
+    System.out.println(countTrianglesB("inputTri.txt"));
   }
 
 }
