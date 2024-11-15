@@ -33,18 +33,23 @@ public class ArrayListPractice {
 }
 public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
   ArrayList<String> mix = new ArrayList<String>(a.size() + b.size());
-  if (a.size() < b.size()) {
-    ArrayList<String> temp = b;
-    b = a;
-    a = temp;
-  }
-
-  for (int i = 0; i < b.size(); i++) {
+  int i = 0;
+  while (i < a.size() && i < b.size()) {
     mix.add(a.get(i));
     mix.add(b.get(i));
+    i++;
   }
-  for (int i = b.size(); i < a.size() - b.size(); i++) {
-    mix.add(a.get(i));
+  if (a.size() > b.size()) {
+    while (i < a.size()) {
+      mix.add(a.get(i));
+      i++;
+    }
+  }
+  else {
+    while (i < b.size()) {
+      mix.add(b.get(i));
+      i++;
+    }
   }
   return mix;
 }

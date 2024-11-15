@@ -35,8 +35,19 @@ public class Driver {
     System.out.println(b.toString());
     System.out.println(c.toString());
 
+    /****************************************************
+    Test 3 - Testing Mix
+    ****************************************************/
 
-    System.out.println(ArrayListPractice.mixLists(b,c).toString());
+    testNum++;
+    testName = "Mix";
+
+    ArrayList<String> d = ArrayListPractice.createRandomArray(5);
+    ArrayList<String> e = ArrayListPractice.createRandomArray(10);
+
+    System.out.println(d);
+    System.out.println(e);
+    System.out.println(ArrayListPractice.mixLists(e,d).toString());
 
   }
 }
