@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class CHANGE THIS {
-  public static int CHANGE THIS {
+  public static int CHANGE THIS (String filename) {
     try{
       File file = new File(filename);
       Scanner input = new Scanner(file);
