@@ -15,6 +15,7 @@ public class d1 {
                 if (direction.charAt(direction.length() - 1) == ',') {
                     direction = direction.substring(0, direction.length() - 1);
                 }
+                
                 char turn = direction.charAt(0);
                 int steps = Integer.parseInt(direction.substring(1));
                 
