@@ -51,9 +51,37 @@ public class d2 {
       File file = new File(filename);
       Scanner input = new Scanner(file);
 
-      
-
-      return 1;
+      int[][] numpad = {{0,0,1,0,0},{0,2,3,4,0},{5,6,7,8,9},{0,10,11,12,0},{0,0,13,0,0}};
+      int row = 1;
+      int col = 1;
+      while (input.hasNextLine()) {
+        String line = input.nextLine();
+        for (int i = 0; i < line.length(); i++) {
+          if (line.charAt(i) == 'R') {
+            if (() && () && () && () && ()) {
+              col++;
+            }
+          }
+          if (line.charAt(i) == 'L') {
+            if (col-row > 0) {
+              col--;
+            }
+          }
+          if (line.charAt(i) == 'U') {
+            if (row > 0) {
+              row--;
+            }
+          }
+          if (line.charAt(i) == 'D') {
+            if (row < 2) {
+              row++;
+            }
+          }
+        }
+        System.out.print(numpad[row][col]);
+      }
+      System.out.println("");
+      return 0;
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
       return -1;
