@@ -58,27 +58,41 @@ public class d2 {
         String line = input.nextLine();
         for (int i = 0; i < line.length(); i++) {
           if (line.charAt(i) == 'R') {
-            if (() && () && () && () && ()) {
+            if (col < 4 && numpad[row][col+1] != 0) {
               col++;
             }
           }
           if (line.charAt(i) == 'L') {
-            if (col-row > 0) {
+            if (col > 0 && numpad[row][col-1] != 0) {
               col--;
             }
           }
           if (line.charAt(i) == 'U') {
-            if (row > 0) {
+            if (row > 0 && numpad[row-1][col] != 0) {
               row--;
             }
           }
           if (line.charAt(i) == 'D') {
-            if (row < 2) {
+            if (row < 4 && numpad[row+1][col] != 0) {
               row++;
             }
           }
         }
+        if (numpad[row][col] == 10) {
+          System.out.print("A");
+        }
+        else if (numpad[row][col] == 11) {
+          System.out.print("B");
+        }
+        else if (numpad[row][col] == 12) {
+          System.out.print("C");
+        }
+        else if (numpad[row][col] == 13) {
+          System.out.print("D");
+        }
+        else {
         System.out.print(numpad[row][col]);
+        }
       }
       System.out.println("");
       return 0;
