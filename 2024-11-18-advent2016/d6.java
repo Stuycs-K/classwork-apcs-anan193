@@ -5,6 +5,19 @@ import java.util.ArrayList;
 
 
 public class d6 {
+  public static String naive(ArrayList<String> a) {
+    String message = ""
+
+    for (int i = 0; i < a.get(0).length(); i++) {
+      ArrayList<String> letters = new ArrayList<String>();
+      for (int j = 0; j < a.size(); j++) {
+        letters.add(a.get(j).substring(i,i+1));
+      }
+      System.out.println(letters);
+    }
+    return message;
+  }
+
   public static int d6a (String filename) {
     try{
       File file = new File(filename);
@@ -15,13 +28,7 @@ public class d6 {
         String a = input.nextLine();
         lines.add(a);
       }
-      for (int i = 0; i < lines.get(0).length(); i++) {
-        int count = 0;
-        
-
-        message +=
-      }
-      System.out.println(message);
+      naive(lines);
       return 0;
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
