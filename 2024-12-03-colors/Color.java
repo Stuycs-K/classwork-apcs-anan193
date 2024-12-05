@@ -8,7 +8,7 @@ public class Color {
 
     for (int y = 0; y < 2 * radius+1; y++) {
         for (int x = 0; x < 2 * radius+1; x++) {
-            
+
             int xDistance = radius - x;
             int yDistance = radius - y;
             int totalDistance = xDistance * xDistance + yDistance * yDistance;
@@ -24,22 +24,22 @@ public class Color {
               }
 
               int r,g,b;
-              
+
               r = (int) (brightness * (angle)) % 256;
               g = (int) (brightness * (angle + 120)) % 256;
               b = (int) (brightness * (angle + 240)) % 256;
 
               System.out.print("\u001b[48;2;" + r + ";" + g + ";" + b + "m  ");
-            } 
+            }
             else {
               System.out.print("\u001b[0m");
-              System.out.print("  ");
+              System.out.print("OO");
             }
         }
         System.out.print("\u001b[0m");
-        System.out.println();  
+        System.out.println();
     }
-    
+
     System.out.print("\u001b[0m");
 }
 }
